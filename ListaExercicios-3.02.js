@@ -14,8 +14,9 @@ const elementosFake = [
 elementosFake.forEach(elemento => {
     for (let propriedade in elemento){
         if (propriedade === 'id') {
-            elemento[propriedade] = 
-            `ID-${String(elemento[propriedade]).padStart(2, '0')}`;
+            elemento[propriedade] =  `ID-${String(elemento[propriedade]).padStart(2, '0')}`;
         }
     }
 });
+
+console.log(elementosFake);
