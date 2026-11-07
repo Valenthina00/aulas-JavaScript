@@ -19,6 +19,6 @@ const elementosFake = [
 
 elementosFake.forEach (elementos => {
     console.log(
-        `Nome da tag: ${elementos.tagName} possui ${elementos.classList.length} classe (s).`
+        `Nome da tag: ${elementos.tagName} possui ${elementos.classList.at.length} classe (s).`
     );
 });
