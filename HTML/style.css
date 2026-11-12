@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: var(--cor-fundo-base);
+    background-color: #1a1a1a;
     color: var(--cor-texto-base);
     font-family: var(--fonte-principal);
 }
@@ -46,12 +46,40 @@ header {
 
 header h1 {
     font-size: calc(1.5rem + 1vw);
+    color: #800020;
+    display: inline-block;
+  animation: moverDireita 5s linear infinite;
 }
 
 nav ul {
-    flex-direction: column;;
     gap: var(--espaco-p);;
     list-style: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu{
+    border: 2px solid var(--cor-zumbi);
+    border-radius: 12px;
+    padding: 25px;
+    margin-left: auto;
+    margin-right: 20px;
+    width: 600px;
+}
+
+.menu legend{
+    text-align: center;
+    padding: 0 10px;
+    color:#cccccc
+}
+
+.menu nav ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 25px;
+    list-style: none;
+    padding: 0;
 }
 
 nav a {
@@ -79,7 +107,15 @@ section{
 h2{
     color: var(--cor-zumbi);
     border-bottom: 2px solid var(--cor-sangue);
-    padding-bottom: 10px;
+    padding-bottom: 10px; 
+}
+
+legend{
+    color: #cccccc;
+}
+
+label{
+    color: #800020;
 }
 
 #boas-vindas{
@@ -87,7 +123,7 @@ h2{
 }
 
 img{
-    max-width: 100%;
+    max-width: 30%;
     height: auto;
     border-radius: var(--borda-suave);
 }
@@ -123,6 +159,7 @@ ol{
 
 li{
     margin-bottom: 15px;
+    color: #800020;
 }
 
 strong{
@@ -134,7 +171,8 @@ aside{
     padding: 20px;
     border-radius: var(--borda-suave);
     border: 1px dashed var(--cor-zumbi);
-    box-shadow: var(--combra-padrao);
+    box-shadow: var(--sombra-padrao);
+    
 }
 
 .botao-match{
@@ -151,6 +189,11 @@ blockquote{
     font-style: italic;
     border-left: 5px solid var(--cor-zumbi);
     padding-left: 20px;
+    color: #cccccc;
+}
+
+article{
+    color: #800020;
 }
 
 cite{
@@ -167,8 +210,9 @@ table{
 }
 
 th, td{
-    border: 1px solid #444;
-    padding: 15px;
+    border: 1px solid #cccccc;
+    color: #e0e0e0;
+    padding: 100px;
 }
 
 th{
@@ -188,12 +232,12 @@ fieldset{
 }
 
 button [type="submit"]{
-    backgrouns-color: var(--cor-zumbi);
+    background-color: var(--cor-zumbi);
     color: white;
     padding: 15px 30px;
     border: none;
     cursor: pointer;
-    width: auto;
+    width: 50px;
 }
 
 button:hover{
@@ -207,6 +251,10 @@ select {
     padding: 10px;
     margin-bottom: 20px;
     border-radius: var(--borda-suave);
+}
+
+p{
+    color: #cccccc;
 }
 
 input[type="text"],
@@ -313,5 +361,15 @@ html[data-theme='light']{
     z-index: 100;
 
     background-color: var(--cor-texto-base);
-    color: var(--cor-fund0-base);
+    color: var(--cor-fundo-base);
+}
+
+@keyframes backInLeft {
+  0% { transform: translateX(-100vw) scale(0.7); opacity: 0.7; }
+  80% { transform: translateX(0) scale(0.7); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+img {
+  animation: backInLeft 1s both;
 }
