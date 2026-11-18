@@ -373,3 +373,15 @@ html[data-theme='light']{
 img {
   animation: backInLeft 1s both;
 }
+
+.destaque-infectado{
+    border: 2px solid var(--cor-sangue);
+    transform: scale(1.02);
+}
+
+#calculadora-zumbi input,
+#resultado-quimica {
+    padding: var(--espaco-m);
+    color: var(--cor-zumbi);
+    margin: var(--espaco-m);
+}
