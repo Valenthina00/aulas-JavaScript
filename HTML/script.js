@@ -96,6 +96,7 @@ btnTema.addEventListener('click', function() {
 
 });
 
+
 let totalMatches = 0;
 
 const botaoMatch =

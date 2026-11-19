@@ -70,7 +70,7 @@ nav ul {
 .menu legend{
     text-align: center;
     padding: 0 10px;
-    color:#cccccc
+    color:#c73838
 }
 
 .menu nav ul{
@@ -329,14 +329,7 @@ footer{
     }
 }
 
-@media (prefers-color-scheme: light){
-    :root{
-        --cor-fundo-base: #f4f4f9;
-        --cor-texto-base: #111111;
-        --cor-superficie: #ffffff;
-        --cor-borda: #cccccc;
-    }
-}
+
 
 html[data-theme='light']{
     --cor-fundo-base: #f4f4f9;
@@ -415,4 +408,78 @@ img {
 .botao-match {
     padding: 10px 30px;
     font-size: 15px;
+}
+
+:root {
+    --cor-header: #000000;
+    --cor-texto-suave: #cccccc;
+}
+
+html[data-theme='light'] {
+    --cor-header: #e8e8ef;
+    --cor-texto-suave: #333333;
+}
+
+/* ===== TEMA CLARO/ESCURO FUNCIONANDO ===== */
+body {
+    background-color: var(--cor-fundo-base);
+    color: var(--cor-texto-base);
+}
+
+header { background-color: var(--cor-header); }
+
+p, legend, blockquote, #placar-matches { color: var(--cor-texto-suave); }
+
+nav a { color: var(--cor-texto-base); }
+nav a:hover { color: var(--cor-zumbi); }
+
+th, td { color: var(--cor-texto-base); border-color: var(--cor-texto-suave); }
+
+details { background-color: var(--cor-superficie); }
+details p { color: var(--cor-texto-suave); }
+
+/* ===== TOPO ORGANIZADO ===== */
+header {
+    flex-direction: column;   /* sempre em coluna, mesmo em telas grandes */
+    gap: var(--espaco-m);
+}
+
+header h1 { animation: none; }
+
+.topo-acoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--espaco-m);
+    width: 100%;
+}
+
+#btn-tema {
+    position: static;         /* sai do canto fixo de baixo */
+    cursor: pointer;
+}
+
+#area-cracha { margin: 0 auto; }
+
+.menu {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#barra-alerta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--espaco-m);
+    width: 100%;
+    padding: var(--espaco-p) var(--espaco-m);
+    background-color: var(--cor-sangue);
+    border-radius: var(--borda-suave);
+}
+
+#barra-alerta p {
+    color: #ffffff;
+    margin: 0;
+    max-width: none;
 }
