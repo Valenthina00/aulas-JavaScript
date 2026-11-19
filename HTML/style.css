@@ -385,3 +385,34 @@ img {
     color: var(--cor-zumbi);
     margin: var(--espaco-m);
 }
+
+#placar-matches {
+    color: #cccccc;
+}
+
+#area-cracha {
+    display: flex;
+    align-items: center;
+
+    width: fit-content;
+
+    padding: 8px 14px;
+
+    margin-top: 8px;
+
+    border: 1px solid #159447;
+    border-radius: 8px;
+
+    background-color: #111111;
+
+    color: white !important;
+}
+
+#preview-cracha {
+    color: white !important;
+}
+
+.botao-match {
+    padding: 10px 30px;
+    font-size: 15px;
+}

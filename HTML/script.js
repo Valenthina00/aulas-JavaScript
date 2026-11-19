@@ -18,117 +18,245 @@ const campoEmail = document.querySelector('input[type="email"]');
 tituloSite.textContent = "The Walking Date";
 
 const depoimento = document.querySelector('cite');
-depoimento.innerHTML = "- <strong>Zezinho da Foice</strong>, Sobreviventes Nível 5";
 
-const textoBoasVindas = document.querySelector('#boas-vindas p').textContent;
+depoimento.innerHTML =
+    "- <strong>Zezinho da Foice</strong>, Sobreviventes Nível 5";
+
+const textoBoasVindas =
+    document.querySelector('#boas-vindas p').textContent;
+
 console.log(textoBoasVindas);
 
 const aside = document.querySelector('aside');
-aside.style.borderColor = 'var(--cor-sangue)';
 
+aside.style.borderColor = 'var(--cor-sangue)';
 aside.style.fontSize = '1.1rem';
 
 const imagem = document.querySelector('#boas-vindas img');
+
 console.log(imagem.getAttribute('alt'));
 
-imagem.setAttribute('alt', 'Casal de zumbis apaixonados ao pôr do sol');
+imagem.setAttribute(
+    'alt',
+    'Casal de zumbis apaixonados ao pôr do sol'
+);
 
 campoNome.value = "Sobrevivente Anônimo";
 
 const primeiraLinha = document.querySelector('tbody tr');
+
 primeiraLinha.classList.add('destaque-infectado');
 
-const aviso = document.createElement('p');
-aviso.textContent = "ALERTA DE HORDA: Encontros hoje apenas em zonas seguras!";
-aviso.style.backgroundColor = "var(--cor-zumbi)";
-aviso.style.textAlign = "center";
-
-document.querySelector('#barra-alerta').appendChild(aviso);
-
 const novoBeneficio = document.createElement('li');
-novoBeneficio.textContent = "Seguro contra perda de membros durante o primeiro encontro.";
 
-document.querySelector('#beneficios ol').appendChild(novoBeneficio);
+novoBeneficio.textContent =
+    "Seguro contra perda de membros durante o primeiro encontro.";
 
-const fecharAlerta = document.querySelector('#fechar-alerta');
-fecharAlerta.addEventListener('clisk', function() {
-    document.querySelector('#barra-alerta').remove();
+document.querySelector('#benefícios ol')
+    .appendChild(novoBeneficio);
+
+const fecharAlerta =
+    document.querySelector('#fechar-alerta');
+
+fecharAlerta.addEventListener('click', function() {
+
+    const barraAlerta =
+        document.querySelector('#barra-alerta');
+
+    if (barraAlerta) {
+        barraAlerta.remove();
+    }
+
 });
 
 const htmlRoot = document.documentElement;
 
-btnTema.addEventListener('clisk', function() {
+btnTema.addEventListener('click', function() {
 
-    if (htmlRoot.getAttribute('data-theme') === 'light') {
+    if (
+        htmlRoot.getAttribute('data-theme') === 'light'
+    ) {
+
         htmlRoot.removeAttribute('data-theme');
-        btnTema.textContent = "Modo Sobrevivência";
+
+        btnTema.textContent =
+            "Modo Sobrevivência";
 
     } else {
-        htmlRoot.setAttribute('data-theme', 'light');
-        btnTema.textContent = "Modo Sombrio";
+
+        htmlRoot.setAttribute(
+            'data-theme',
+            'light'
+        );
+
+        btnTema.textContent =
+            "Modo Sombrio";
+
     }
+
 });
 
 let totalMatches = 0;
 
-const botaoMatch = document.querySelector('.botao-match');
+const botaoMatch =
+    document.querySelector('.botao-match');
 
-botaoMatch.addEventListener('clisk', function(event) {
-    event.target.textContent = "Match Confirmado!";
+botaoMatch.addEventListener('click', function(event) {
+
+    event.target.textContent =
+        "Match Confirmado!";
+
     event.target.disabled = true;
 
     totalMatches++;
-    document.querySelector('#placar-matches').textContent = "Matches: " + totalMatches;
+
+    document.querySelector(
+        '#placar-matches'
+    ).textContent =
+        "Matches: " + totalMatches;
+
 });
 
-const btnCalcular = document.querySelector('#btn-calcular');
 
-btnCalcular.addEventListener('click', function () {
-    const diasInfectado = Number(document.querySelector('#dias-infectado').value);
-    const diasParceiro = Number(document.querySelector('#dias-parceiro').value);
+// ===============================
+// CALCULADORA DE QUÍMICA
+// ===============================
 
-    if (document.querySelector('#dias-infectado').value === "" ||
-        document.querySelector('#dias-parceiro').value === "" || 
-        diasInfectado < 0 || diasParceiro < 0) {
+const btnCalcular =
+    document.querySelector('#btn-calcular');
 
-            document.querySelector('#resultado-quimica').textContent =
+btnCalcular.addEventListener('click', function() {
+
+    const diasInfectado =
+        Number(
+            document.querySelector(
+                '#dias-infectado'
+            ).value
+        );
+
+    const diasParceiro =
+        Number(
+            document.querySelector(
+                '#dias-parceiro'
+            ).value
+        );
+
+
+    if (
+        document.querySelector(
+            '#dias-infectado'
+        ).value === "" ||
+
+        document.querySelector(
+            '#dias-parceiro'
+        ).value === "" ||
+
+        diasInfectado < 0 ||
+
+        diasParceiro < 0
+    ) {
+
+        document.querySelector(
+            '#resultado-quimica'
+        ).textContent =
             "Erro: Digite um número válido de dias, humano!";
-        } else {
-            const soma = diasInfectado + diasParceiro;
 
-            document.querySelector('#resultado-quimica').textContent =
-            "Nível de podridão combinada: " + soma + " dias! Compatibilidade alta!";
-        }
+    } else {
+
+        const soma =
+            diasInfectado + diasParceiro;
+
+        document.querySelector(
+            '#resultado-quimica'
+        ).textContent =
+            "Nível de podridão combinada: " +
+            soma +
+            " dias! Compatibilidade alta!";
+
+    }
+
 });
+
+
+// ===============================
+// CRACHÁ DO SOBREVIVENTE
+// ===============================
 
 campoNome.addEventListener('input', function() {
-    document.querySelector('#preview-cracha').textContent =
-    "Crachá de sobrevivente: " + campoNome.value;
+
+    document.querySelector(
+        '#preview-cracha'
+    ).textContent =
+        "Crachá de sobrevivente: " +
+        campoNome.value;
+
 });
 
-    imagem.addEventListener('mouseover', function(){
-        console.log("Cuidado! Não chegue muito Perto da tela...");
-    });
 
-const formulario = document.querySelector('form');
+// ===============================
+// MOUSE SOBRE A IMAGEM
+// ===============================
 
-formulario.addEventListener('submit', function(event) {
-    event.preventDefault();
+imagem.addEventListener('mouseover', function() {
 
-    alert("Cadastro concluído, " + campoNome.value + "! Prepare sua melhor mordida.");
+    console.log(
+        "Cuidado! Não chegue muito Perto da tela..."
+    );
 
-    campoNome.value = "";
-    campoEmail.value = ""; 
-
-    document.querySelector('#preview-cracha').textContent = "Crachá: ...";
 });
 
-    document.addEventListener('keydown', function(event) {
+
+// ===============================
+// FORMULÁRIO
+// ===============================
+
+const formulario =
+    document.querySelector('form');
+
+formulario.addEventListener(
+    'submit',
+    function(event) {
+        event.preventDefault();
+
+        alert(
+                "Cadastro concluído, " +
+                campoNome.value +
+                "! Prepare sua melhor mordida."
+            );
+
+        campoNome.value = "";
+
+        campoEmail.value = "";
+
+        document.querySelector(
+            '#preview-cracha'
+        ).textContent =
+            "Crachá: ...";
+
+    }
+);
+
+
+// ===============================
+// TECLA ESCAPE
+// ===============================
+
+document.addEventListener(
+    'keydown',
+    function(event) {
+
         if (event.key === 'Escape') {
-            const barraAlerta = this.doctype.querySelector('#barra-alerta');
+
+            const barraAlerta =
+                document.querySelector(
+                    '#barra-alerta'
+                );
 
             if (barraAlerta) {
                 barraAlerta.remove();
             }
+
         }
-});
+
+    }
+);
